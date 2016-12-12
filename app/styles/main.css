@@ -56,3 +56,8 @@ table, th, td {
   border: 1px solid;
   padding: 7px;
 }
+
+.footer-content {
+  margin: auto;
+  width: 30%;
+}

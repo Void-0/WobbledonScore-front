@@ -1,4 +1,4 @@
-<!--<p> lol {{scoreData}} lol </p>-->
+<h3>Latest match score ({{scoreData.data.content.score.hasEnded ? 'Ended' : 'Ongoing'}})</h3>
 
 <table class="score-table">
   <tr>
@@ -34,3 +34,5 @@
     <td>{{scoreData.data.content.score.pointsB}}</td>
   </tr>
 </table>
+
+<p ng-if="scoreData.data.content.score.hasEnded">Winner: {{scoreData.data.content['player' + scoreData.data.content.score.winner].name}}</p>

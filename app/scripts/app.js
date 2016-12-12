@@ -30,8 +30,7 @@ angular
             //controller: '####'
           },
           'footer': {
-            //templateUrl: '###',
-            template: 'BOT'
+            templateUrl: 'views/footer.html'
             //controller: '####',
             //resolve: {
             //  something: function () {
