@@ -1,0 +1,58 @@
+.background {
+  background: lightgray;
+}
+
+.header,
+.footer {
+  padding: 10px;
+  margin: 10px;
+}
+
+.body {
+  margin: 10px;
+}
+
+.container-inner {
+  color: white;
+  font-size: 18px;
+  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+  padding: 10px;
+}
+
+.sidebar-menu,
+.main-content,
+.header,
+.main-margin,
+.footer {
+  background: #284f3c;
+}
+
+/* so that our blocks will take up the whole space */
+html,body,.row {
+  height: 90%
+}
+
+.row.plop {
+  height: 100%
+}
+
+.row > div {
+  height: 100%
+}
+
+h1 {
+  color: white;
+  font-size: 42px;
+  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+  text-align: center;
+}
+
+table {
+  border-collapse: collapse;
+  text-align: center;
+}
+
+table, th, td {
+  border: 1px solid;
+  padding: 7px;
+}

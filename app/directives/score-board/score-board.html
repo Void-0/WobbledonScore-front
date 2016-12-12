@@ -1,0 +1,36 @@
+<!--<p> lol {{scoreData}} lol </p>-->
+
+<table class="score-table">
+  <tr>
+    <td colspan="5">PREVIOUS SETS</td>
+    <td>Players</td>
+    <td>SETS</td>
+    <td>GAMES</td>
+    <td>POINTS</td>
+  </tr>
+  <tr>
+    <td>{{scoreData.data.content.previousSets[0] ? scoreData.data.content.previousSets[0].gameA : ''}}</td>
+    <td>{{scoreData.data.content.previousSets[1] ? scoreData.data.content.previousSets[1].gameA : ''}}</td>
+    <td>{{scoreData.data.content.previousSets[2] ? scoreData.data.content.previousSets[2].gameA : ''}}</td>
+    <td>{{scoreData.data.content.previousSets[3] ? scoreData.data.content.previousSets[3].gameA : ''}}</td>
+    <td>{{scoreData.data.content.previousSets[4] ? scoreData.data.content.previousSets[4].gameA : ''}}</td>
+    <td>{{scoreData.data.content.playerA.name}}</td>
+    <td>{{scoreData.data.content.score.setA}}</td>
+    <td>{{scoreData.data.content.score.gameA}}</td>
+    <td>{{scoreData.data.content.score.pointsA}}</td>
+  </tr>
+  <tr>
+    <td colspan="9">vs</td>
+  </tr>
+  <tr>
+    <td>{{scoreData.data.content.previousSets[0] ? scoreData.data.content.previousSets[0].gameB : ''}}</td>
+    <td>{{scoreData.data.content.previousSets[1] ? scoreData.data.content.previousSets[1].gameB : ''}}</td>
+    <td>{{scoreData.data.content.previousSets[2] ? scoreData.data.content.previousSets[2].gameB : ''}}</td>
+    <td>{{scoreData.data.content.previousSets[3] ? scoreData.data.content.previousSets[3].gameB : ''}}</td>
+    <td>{{scoreData.data.content.previousSets[4] ? scoreData.data.content.previousSets[4].gameB : ''}}</td>
+    <td>{{scoreData.data.content.playerB.name}}</td>
+    <td>{{scoreData.data.content.score.setB}}</td>
+    <td>{{scoreData.data.content.score.gameB}}</td>
+    <td>{{scoreData.data.content.score.pointsB}}</td>
+  </tr>
+</table>
