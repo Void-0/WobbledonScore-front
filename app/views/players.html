@@ -1,1 +1,12 @@
----- {{players}} ---
+<div class="container-inner">
+  <h2>List of this years contestants</h2>
+
+  <table>
+    <tr ng-repeat="player in players">
+      <td>{{player.name}} <button ng-click="details = !details">{{details ? '^' : 'v'}}</button></td>
+      <td ng-if-start="details">{{player.age}} years old</td>
+      <td>Rank: {{player.worldRanking}}</td>
+      <td ng-if-end>Bio: {{player.description}}</td>
+    </tr>
+  </table>
+</div>
