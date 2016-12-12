@@ -13,7 +13,6 @@ angular
     'ngAnimate',
     'ngCookies',
     'ngResource',
-    'ngRoute',
     'ngSanitize',
     'ngTouch',
     'ui.router',
@@ -31,16 +30,9 @@ angular
           },
           'footer': {
             templateUrl: 'views/footer.html'
-            //controller: '####',
-            //resolve: {
-            //  something: function () {
-            //    return 42;
-            //  }
-            //}
           },
           'sidebar-menu': {
             templateUrl: 'views/sidebar-menu.html'
-            //controller: '####'
           }
         }
       })
@@ -48,8 +40,7 @@ angular
         url: '/home',
         views: {
           '@': {
-            templateUrl: 'views/home.html',
-            controller: 'homeCtrl'
+            templateUrl: 'views/home.html'
           }
         }
       })
@@ -82,7 +73,6 @@ angular
         views: {
           '@': {
             templateUrl: 'views/about.html',
-            controller: 'aboutCtrl'
           }
         }
       });

@@ -61,3 +61,10 @@ table, th, td {
   margin: auto;
   width: 30%;
 }
+
+.score-log {
+  height: 25vh;
+  overflow: scroll;
+  border: solid;
+  background: #396450;
+}

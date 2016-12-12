@@ -36,3 +36,18 @@
 </table>
 
 <p ng-if="scoreData.data.content.score.hasEnded">Winner: {{scoreData.data.content['player' + scoreData.data.content.score.winner].name}}</p>
+
+<h3 ng-if-start="longVersion">Match details</h3>
+
+<div ng-if-end class="score-log">
+  <p ng-repeat-start="score in scoreData.data.content.scoreLog" ng-if="$index > 0">
+    <i>   Point <strong>{{scoreData.data.content['player' + score.lastPoint].name}}</strong>!</i>
+  </p>
+  <p>
+    {{scoreData.data.content.playerA.name + ' vs ' + scoreData.data.content.playerB.name + ': Points: ' + score.pointsA
+    + ' - ' + score.pointsB + ', Games: ' + score.gameA + ' - ' + score.gameB + ', Sets: ' + score.setA + ' - ' + score.setB}}
+  </p>
+  <p ng-repeat-end ng-if="scoreData.data.content.score.hasEnded && $last">
+    Match Ended. Winner: {{scoreData.data.content['player' + scoreData.data.content.score.winner].name}}
+  </p>
+</div>
