@@ -4,8 +4,9 @@
  * @ngdoc function
  * @name lukatennisFrontApp.controller:playersCtrl
  * @description
- * # AboutCtrl
- * Controller of the lukatennisFrontApp
+ * # playersCtrl
+ *
+ * Controller of the lukatennisFrontApp showing a list of registered players
  */
 angular.module('lukatennisFrontApp')
   .controller('playersCtrl', function ($scope, playersList) {

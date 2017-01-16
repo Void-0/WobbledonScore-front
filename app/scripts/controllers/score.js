@@ -4,8 +4,9 @@
  * @ngdoc function
  * @name lukatennisFrontApp.controller:scoreCtrl
  * @description
- * # AboutCtrl
- * Controller of the lukatennisFrontApp
+ * # scoreCtrl
+ *
+ * Controller of the lukatennisFrontApp containing the current match's score
  */
 angular.module('lukatennisFrontApp')
   .controller('scoreCtrl', function () {

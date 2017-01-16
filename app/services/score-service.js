@@ -1,3 +1,13 @@
+'use strict';
+
+/**
+ * @ngdoc function
+ * @name lukatennisFrontApp.factory:ScoreService
+ * @description
+ * # ScoreService
+ *
+ * Score service receiving and processing the websocket information
+ */
 angular.module('lukatennisFrontApp').factory('ScoreService', function ($websocket, SERVERPATH) {
   // Open a WebSocket connection
   var dataStream = $websocket('ws://' + SERVERPATH + '/score');

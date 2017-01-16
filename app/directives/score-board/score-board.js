@@ -1,5 +1,13 @@
 'use strict';
 
+/**
+ * @ngdoc function
+ * @name lukatennisFrontApp.directive:scoreBoard
+ * @description
+ * # scoreBoard
+ *
+ * Directive of the lukatennisFrontApp showing the score of the current match
+ */
 angular.module('lukatennisFrontApp').directive('scoreBoard', function () {
   return {
     restrict: 'E',
