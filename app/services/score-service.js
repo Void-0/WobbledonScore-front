@@ -1,4 +1,4 @@
-angular.module('lukatennisFrontApp').factory('ScoreService', function($websocket, SERVERPATH) {
+angular.module('lukatennisFrontApp').factory('ScoreService', function ($websocket, SERVERPATH) {
   // Open a WebSocket connection
   var dataStream = $websocket('ws://' + SERVERPATH + '/score');
 
@@ -6,22 +6,29 @@ angular.module('lukatennisFrontApp').factory('ScoreService', function($websocket
     content: {}
   };
 
-  dataStream.onMessage(function(message) {
+  dataStream.onMessage(function (message) {
     scoreData.content = JSON.parse(message.data);
     scoreData.content.previousSets = [];
-    console.log(scoreData.content);
 
-    scoreData.content.scoreLog.forEach(function(pointPlayed, index, scoreLog) {
-      if(index > 0){
-        if(pointPlayed.setA > scoreLog[index-1].setA) {
+    scoreData.content.matchScoreLog.forEach(function (pointPlayed, index, matchScoreLog) {
+      if (index > 0) {
+        if (pointPlayed.scorePlayerA.sets > matchScoreLog[index - 1].scorePlayerA.sets) {
           scoreData.content.previousSets.push({
-            gameA: scoreLog[index-1].gameA + 1,
-            gameB: scoreLog[index-1].gameB
+            scorePlayerA: {
+              games: matchScoreLog[index - 1].scorePlayerA.games + 1
+            },
+            scorePlayerB: {
+              games: matchScoreLog[index - 1].scorePlayerB.games
+            }
           });
-        } else if(pointPlayed.setB > scoreLog[index-1].setB) {
+        } else if (pointPlayed.scorePlayerB.sets > matchScoreLog[index - 1].scorePlayerB.sets) {
           scoreData.content.previousSets.push({
-            gameA: scoreLog[index-1].gameA,
-            gameB: scoreLog[index-1].gameB + 1
+            scorePlayerA: {
+              games: matchScoreLog[index - 1].scorePlayerA.games
+            },
+            scorePlayerB: {
+              games: matchScoreLog[index - 1].scorePlayerB.games + 1
+            }
           });
         }
       }
@@ -30,8 +37,8 @@ angular.module('lukatennisFrontApp').factory('ScoreService', function($websocket
 
   var methods = {
     data: scoreData,
-    get: function() {
-      dataStream.send(JSON.stringify({ action: 'get' }));
+    get: function () {
+      dataStream.send(JSON.stringify({action: 'get'}));
     }
   };
 

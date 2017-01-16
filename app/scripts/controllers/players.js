@@ -9,14 +9,5 @@
  */
 angular.module('lukatennisFrontApp')
   .controller('playersCtrl', function ($scope, playersList) {
-
     $scope.players = playersList;
-
-    console.log('iiii', $scope.players);
-
-
-
-    alert('players loaded !');
-
-
   });

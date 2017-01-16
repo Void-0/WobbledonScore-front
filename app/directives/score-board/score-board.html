@@ -1,4 +1,4 @@
-<h3>Latest match score ({{scoreData.data.content.score.hasEnded ? 'Ended' : 'Ongoing'}})</h3>
+<h3>Latest match score ({{scoreData.data.content.matchScore.hasEnded ? 'Ended' : 'Ongoing'}})</h3>
 
 <table class="score-table">
   <tr>
@@ -9,45 +9,47 @@
     <td>POINTS</td>
   </tr>
   <tr>
-    <td>{{scoreData.data.content.previousSets[0] ? scoreData.data.content.previousSets[0].gameA : ''}}</td>
-    <td>{{scoreData.data.content.previousSets[1] ? scoreData.data.content.previousSets[1].gameA : ''}}</td>
-    <td>{{scoreData.data.content.previousSets[2] ? scoreData.data.content.previousSets[2].gameA : ''}}</td>
-    <td>{{scoreData.data.content.previousSets[3] ? scoreData.data.content.previousSets[3].gameA : ''}}</td>
-    <td>{{scoreData.data.content.previousSets[4] ? scoreData.data.content.previousSets[4].gameA : ''}}</td>
+    <td>{{scoreData.data.content.previousSets[0] ? scoreData.data.content.previousSets[0].scorePlayerA.games : ''}}</td>
+    <td>{{scoreData.data.content.previousSets[1] ? scoreData.data.content.previousSets[1].scorePlayerA.games : ''}}</td>
+    <td>{{scoreData.data.content.previousSets[2] ? scoreData.data.content.previousSets[2].scorePlayerA.games : ''}}</td>
+    <td>{{scoreData.data.content.previousSets[3] ? scoreData.data.content.previousSets[3].scorePlayerA.games : ''}}</td>
+    <td>{{scoreData.data.content.previousSets[4] ? scoreData.data.content.previousSets[4].scorePlayerA.games : ''}}</td>
     <td>{{scoreData.data.content.playerA.name}}</td>
-    <td>{{scoreData.data.content.score.setA}}</td>
-    <td>{{scoreData.data.content.score.gameA}}</td>
-    <td>{{scoreData.data.content.score.pointsA}}</td>
+    <td>{{scoreData.data.content.matchScore.scorePlayerA.sets}}</td>
+    <td>{{scoreData.data.content.matchScore.scorePlayerA.games}}</td>
+    <td>{{scoreData.data.content.matchScore.scorePlayerA.points}}</td>
   </tr>
   <tr>
     <td colspan="9">vs</td>
   </tr>
   <tr>
-    <td>{{scoreData.data.content.previousSets[0] ? scoreData.data.content.previousSets[0].gameB : ''}}</td>
-    <td>{{scoreData.data.content.previousSets[1] ? scoreData.data.content.previousSets[1].gameB : ''}}</td>
-    <td>{{scoreData.data.content.previousSets[2] ? scoreData.data.content.previousSets[2].gameB : ''}}</td>
-    <td>{{scoreData.data.content.previousSets[3] ? scoreData.data.content.previousSets[3].gameB : ''}}</td>
-    <td>{{scoreData.data.content.previousSets[4] ? scoreData.data.content.previousSets[4].gameB : ''}}</td>
+    <td>{{scoreData.data.content.previousSets[0] ? scoreData.data.content.previousSets[0].scorePlayerB.games : ''}}</td>
+    <td>{{scoreData.data.content.previousSets[1] ? scoreData.data.content.previousSets[1].scorePlayerB.games : ''}}</td>
+    <td>{{scoreData.data.content.previousSets[2] ? scoreData.data.content.previousSets[2].scorePlayerB.games : ''}}</td>
+    <td>{{scoreData.data.content.previousSets[3] ? scoreData.data.content.previousSets[3].scorePlayerB.games : ''}}</td>
+    <td>{{scoreData.data.content.previousSets[4] ? scoreData.data.content.previousSets[4].scorePlayerB.games : ''}}</td>
     <td>{{scoreData.data.content.playerB.name}}</td>
-    <td>{{scoreData.data.content.score.setB}}</td>
-    <td>{{scoreData.data.content.score.gameB}}</td>
-    <td>{{scoreData.data.content.score.pointsB}}</td>
+    <td>{{scoreData.data.content.matchScore.scorePlayerB.sets}}</td>
+    <td>{{scoreData.data.content.matchScore.scorePlayerB.games}}</td>
+    <td>{{scoreData.data.content.matchScore.scorePlayerB.points}}</td>
   </tr>
 </table>
 
-<p ng-if="scoreData.data.content.score.hasEnded">Winner: {{scoreData.data.content['player' + scoreData.data.content.score.winner].name}}</p>
+<p ng-if="scoreData.data.content.matchScore.hasEnded">
+  Winner: {{scoreData.data.content.matchScore.lastPoint === 'PLAYER_A' ? scoreData.data.content.playerA.name : scoreData.data.content.playerB.name}}
+</p>
 
 <h3 ng-if-start="longVersion">Match details</h3>
 
 <div ng-if-end class="score-log">
-  <p ng-repeat-start="score in scoreData.data.content.scoreLog" ng-if="$index > 0">
+  <p ng-repeat-start="score in scoreData.data.content.matchScoreLog" ng-if="$index > 0">
     <i>   Point <strong>{{scoreData.data.content['player' + score.lastPoint].name}}</strong>!</i>
   </p>
   <p>
-    {{scoreData.data.content.playerA.name + ' vs ' + scoreData.data.content.playerB.name + ': Points: ' + score.pointsA
-    + ' - ' + score.pointsB + ', Games: ' + score.gameA + ' - ' + score.gameB + ', Sets: ' + score.setA + ' - ' + score.setB}}
+    {{scoreData.data.content.playerA.name + ' vs ' + scoreData.data.content.playerB.name + ': Points: ' + score.scorePlayerA.points
+    + ' - ' + score.scorePlayerB.points + ', Games: ' + score.scorePlayerA.games + ' - ' + score.scorePlayerB.games + ', Sets: ' + score.scorePlayerA.sets + ' - ' + score.scorePlayerB.sets}}
   </p>
-  <p ng-repeat-end ng-if="scoreData.data.content.score.hasEnded && $last">
-    Match Ended. Winner: {{scoreData.data.content['player' + scoreData.data.content.score.winner].name}}
+  <p ng-repeat-end ng-if="scoreData.data.content.matchScore.hasEnded && $last">
+    Winner: {{scoreData.data.content.matchScore.lastPoint === 'PLAYER_A' ? scoreData.data.content.playerA.name : scoreData.data.content.playerB.name}}
   </p>
 </div>
